@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Express</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scss/reset.css">
+    <link rel="stylesheet" href="scss/styles.css">
+    
+</head>
+<body>
+    <div class="weather-express">
+        <header class="weather-express__header-top header-top">
+            <div class="container-fluid">
+                <nav class="header-top__nav">
+                    <div class="header-top__brand-wrapper d-flex align-items-center">
+                        <a class="header-top__brand" href="#">Weather Express</a>
+                    </div>
+    
+                    <form class="header-top__form search-form" action="">
+                        <input class="header-top__text-input--search" id="input_search" type="text" placeholder="Search">
+                        <button class="header-top__btn--search" id="btn_search"><i class="fas fa-search"></i></button>
+                    </form>
+                  </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="weather-express__main-section main-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-6 main-section__city-img-wrapper d-flex justify-content-between" id="city_img">
+                    <div class="main-section__weather-short-info weather-short-info">
+                        <span class="weather-short-info__text weather-short-info__text--city-name" id="city_name_text"></span>
+                        <span class="weather-short-info__text weather-short-info__text--current-time" id="current_time_text"></span>
+                        <div class="weather-short-info__temperature-wrapper">
+                            <span class="weather-short-info__text weather-short-info__text--temperature" id="temp_text"></span>
+                            <span class="weather-short-info__temperature-symbol">&ordm</span>
+                        </div>
+                        
+                        <span class="weather-short-info__text weather-short-info__text--desc" id="weather_desc"></span>
+                    </div>
+
+                    <div class="main-section__weather-icon-wrapper">
+                        <img src="" alt="weather icon" class="main-section__weather-icon" id="main_weather_icon">
+                    </div>
+                    
+                </div>
+                    
+                <div class="col-12 col-lg-6 main-section__weather-full-info">
+                    <div class="main-section__current-weather current-weather">
+                        <h2 class="current-weather__title">Weather today in <span id="weather_title"></span></span></h2>
+                        <h3 class="current-weather__temperature"></h3>
+                        
+                        <ul class="row current-weather__row justify-content-center">
+                                <li class="col-12 col-sm-6 current-weather__item current-weather__item--left">
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/humidity.png" alt="humidity" class="current-weather__item-icon">
+                                        </li>
+                                        <li class=" col-3 col-sm current-weather__data">Humidity</li>
+                                        <li class=" col-3 col-sm current-weather__data" id="humidity"></li>
+                                    </ul>
+                                    
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/pressure.png" alt="pressure" class="current-weather__item-icon">
+                                        </li>
+                                        <li class=" col-3 col-sm current-weather__data">Pressure</li>
+                                        <li class=" col-3 col-sm current-weather__data" id="pressure"</li>
+                                    </ul>
+                                    
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/visibility.png" alt="visibility" class="current-weather__item-icon">
+                                        </li>
+                                        <li class=" col-3 col-sm current-weather__data">Visibility</li>
+                                        <li class=" col-3 col-sm current-weather__data" id="visibility"></li>
+                                    </ul>
+    
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/devpoint.png" alt="dev point" class="current-weather__item-icon">
+                                        </li>
+                                        <li class=" col-3 col-sm current-weather__data">Dew Point</li>
+                                        <li class=" col-3 col-sm current-weather__data" id="dew_point"></li>
+                                    </ul>
+                                </li>
+
+                                <li class="col-12 col-sm-6 current-weather__item current-weather__item--left">
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/wind-speed.png" alt="wind speed" class="current-weather__item-icon">
+                                        </li>
+                                        <li class=" col-3 col-sm current-weather__data">Wind Speed</li>
+                                        <li class=" col-3 col-sm current-weather__data" id="wind_speed"></li>
+                                    </ul>
+                                    
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/wind-direction.png" alt="wind direction" class="current-weather__item-icon">
+                                        </li>
+                                        <li class="col-3 col-sm current-weather__data">Wind Direction</li>
+                                        <li class="col-3 col-sm current-weather__data" id="wind_dir"></li>
+                                    </ul>
+                                    
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/uv-index.png" alt="uv index" class="current-weather__item-icon">
+                                        </li>
+                                        <li class="col-3 col-sm current-weather__data">UV Index</li>
+                                        <li class="col-3 col-sm current-weather__data" id="uv_index"></li>
+                                    </ul>
+    
+                                    <ul class="row current-weather__item-row">
+                                        <li class=" col-2 current-weather__data">
+                                            <img src="img/cloud-coverage.png" alt="cloud coverage" class="current-weather__item-icon">
+                                        </li>
+                                        <li class="col-3 col-sm current-weather__data">Cloud Coverage</li>
+                                        <li class="col-3 col-sm current-weather__data" id="cloud_cov"></li>
+                                    </ul>
+                                </li>
+                            </ul>  
+                        </div> 
+
+                        <div class="main-section__daily-forecast">
+                            <h2 class="daily-forecast__title">Daily Forecast</h2>
+                            <ul class="row no-gutters">
+                                
+                                <li class="col-4 col-sm mb-5 mb-sm-0 daily-forecast__item">
+                                    <h2 class="daily-forecast__item-text daily-forecast__item-text--title" id="daily_date1"></h2>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--high" id="daily_hi1"></h3>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--low" id="daily_low1"></h3>
+                                    <img src="" alt="weather icon" class="daily-forecast__item-icon" id="daily_icon1">
+                                    <h4 class="daily-forecast__item-text daily-forecast__item-text--precipe" id="daily_precip1"></h4>                                    
+                                </li>
+                            
+                            
+                                <li class="col-4 col-sm mb-5 mb-sm-0 daily-forecast__item">
+                                    <h2 class="daily-forecast__item-text daily-forecast__item-text--title" id="daily_date2"></h2>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--high" id="daily_hi2"></h3>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--low" id="daily_low2"></h3>
+                                    <img src="" alt="weather icon" class="daily-forecast__item-icon" id="daily_icon2">
+                                    <h4 class="daily-forecast__item-text daily-forecast__item-text--precipe" id="daily_precip2"></h4>                                    
+                                </li>
+                            
+                            
+                                <li class="col-4 col-sm mb-5 mb-sm-0 daily-forecast__item">
+                                    <h2 class="daily-forecast__item-text daily-forecast__item-text--title" id="daily_date3"></h2>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--high" id="daily_hi3"></h3>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--low" id="daily_low3"></h3>
+                                    <img src="" alt="weather icon" class="daily-forecast__item-icon" id="daily_icon3">
+                                    <h4 class="daily-forecast__item-text daily-forecast__item-text--precipe" id="daily_precip3"></h4>                                    
+                                </li>
+                            
+                            
+                                <li class="col col-sm daily-forecast__item">
+                                    <h2 class="daily-forecast__item-text daily-forecast__item-text--title" id="daily_date4"></h2>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--high" id="daily_hi4"></h3>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--low" id="daily_low4"></h3>
+                                    <img src="" alt="weather icon" class="daily-forecast__item-icon" id="daily_icon4">
+                                    <h4 class="daily-forecast__item-text daily-forecast__item-text--precipe" id="daily_precip4"></h4>                                    
+                                </li>
+                            
+                            
+                                <li class="col daily-forecast__item daily-forecast__item--last">
+                                    <h2 class="daily-forecast__item-text daily-forecast__item-text--title" id="daily_date5"></h2>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--high" id="daily_hi5"></h3>
+                                    <h3 class="daily-forecast__item-text daily-forecast__item-text--low" id="daily_low5"></h3>
+                                    <img src="" alt="weather icon" class="daily-forecast__item-icon" id="daily_icon5">
+                                    <h4 class="daily-forecast__item-text daily-forecast__item-text--precipe" id="daily_precip5"></h4>                                    
+                                </li>
+                            </ul> 
+                        </div>                   
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/685d784eea.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    
+</body>
+</html>
